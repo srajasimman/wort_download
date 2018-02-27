@@ -1,4 +1,4 @@
-#
+#!/data/data/com.termux/files/usr/bin/env bash
 url="http://archive.wortfm.org/_pa_dodown.php?id=12816";
 f=`echo $url | cut -d'=' -f1`
 r=`echo $url | cut -d'=' -f2`
@@ -24,7 +24,7 @@ do
                         else 
                                 ht=`expr $ht1`;
                                 if [ "$ht" -gt "$th" ]; then
-                                        wget $f=$z -O $z.mp3 2>$1;
+                                        wget --progress bar -c $f=$z -O $z.mp3 2>&1;
                                         echo "File $z.mp3 downloaded";
                                 else
                                         echo "File / Size not matching with threshold";
